@@ -1,0 +1,7 @@
+---
+- name: Instalar las extensiones de php
+  apt: name={{ item }} state=present
+  become: yes
+  with_items:
+    - php7.0-gd
+    - php7.0-opcache

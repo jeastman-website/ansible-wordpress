@@ -1,0 +1,19 @@
+---
+- name: Cear la base de datos en mysql
+  become: yes
+  mysql_db:
+    name={{ wp_mysql_db }}
+    state=present
+
+- name: Eliminar los usuarios anonimos
+  mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+
+- name: Cear el usuario en mysql
+  mysql_user:
+    name={{ wp_mysql_user }}
+    password={{ wp_mysql_password }}
+    priv=*.*:ALL
+    state=present
