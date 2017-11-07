@@ -13,12 +13,14 @@ Proyecto en [Ansible][ansible-url] en proceso de desarrollo que permite configur
 cp hosts.sample hosts
 ```
 
-En la sección ***[wordpress]*** reemplazar ***<IP|dominio>*** por la IP o el nombre del dominio de su servidor.
+* En la sección ***[wordpress]*** reemplazar ***<IP|dominio>*** por la IP o el nombre del dominio de su servidor.
 
-En la sección ***[wordpress:vars]*** por lo general no sufre cambios
+* En la sección ***[wordpress:vars]*** por lo general no sufre cambios
+
+* Reemplazarl los valores para wp_mysql_db, wp_mysql_user y wp_mysql_password según sea el caso
 
 
-la versión final del archivos ***hosts*** debería ser similar a:
+La versión final del archivos ***hosts*** debería ser similar a:
 
 ``` yaml
 [wordpress]
@@ -27,6 +29,11 @@ la versión final del archivos ***hosts*** debería ser similar a:
 [wordpress:vars]
 ansible_ssh_user=root
 ansible_python_interpreter=/usr/bin/python3
+
+wp_mysql_db=wordpress
+wp_mysql_user=wordpress
+wp_mysql_password=secret
+
 ```
 
 
